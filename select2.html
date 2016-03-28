@@ -1,0 +1,187 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8">
+    <title>Select2 3.5.3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Select2 JQuery Plugin">
+    <meta name="author" content="Igor Vaynberg">
+   </head>
+   <body>
+
+   <form>
+   	
+   	<div style="margin: 20px;">
+         分类
+   		<select id="e1" style="width: 100px;">
+            <option value="-1">--分类--</option>
+   			<option value="1">地板</option>
+   			<option value="2">墙面材料</option>
+   			<option value="3">建材类</option>
+   			<option value="4">地砖瓷砖</option>
+   		</select>
+
+         商家
+         <input type="hidden" class="bigdrop" id="e6" style="width:200px" value="" />
+
+         <input type="button" id="add" value="添加">
+
+
+   	</div>
+
+      <div>
+         <table style="width: 90%; margin: 20px; border:#dfdfdf solid 1px; font-size: 14px; line-height: 30px;" cellpadding="0" cellspacing="1" border="1" id="myTable">
+            <tr>
+               <th>添加时间</th>
+               <th>分类</th>
+               <th>商家</th>
+               <th>操作</th>
+            </tr>
+         </table>
+      </div>
+
+
+   </form>
+   </body>
+</html>
+<style>
+   td{text-align: center;}
+
+   .row-fluid{
+      height: auto;
+      overflow: hidden;
+      clear: both;
+   }
+   .span2{
+      width: 20%;
+      float: left;
+   }
+   .span2 img{
+      width: 50%;
+   }
+   .span10{
+      width: 80%;
+      float: left;
+   }
+</style> 
+<div class="row-fluid">
+   <div class="span2"><img src="https://avatars.githubusercontent.com/u/993323?v=3"></div>
+   <div class="span10">
+      <div class="row-fluid">
+         <div class="span6">yiisoft/yii</div>
+      </div>
+   </div>
+</div>
+
+<!-- <link href="http://select2.github.io/select2/bootstrap/css/bootstrap.css" rel="stylesheet"/> -->
+<script src="http://select2.github.io/select2/js/jquery-1.7.1.min.js"></script>
+<script src="http://select2.github.io/select2/bootstrap/js/bootstrap.min.js"></script>
+
+<link href="http://select2.github.io/select2/select2-3.5.3/select2.css" rel="stylesheet"/>
+<script src="http://select2.github.io/select2/select2-3.5.3/select2.js"></script>
+
+<script>
+	function repoFormatResult(repo) {
+      var markup = '<div class="row-fluid">' +
+         '<div class="span2"><img src="' + repo.owner.avatar_url + '" /></div>' +
+         '<div class="span10">' +
+            '<div class="row-fluid">' +
+               '<div class="span6">' + repo.full_name + '</div>' +
+            '</div>';
+
+      markup += '</div></div>';
+
+      return markup;
+   }
+
+   function repoFormatSelection(repo) {
+      return repo.full_name;
+   }
+
+
+   //格式化日期
+   Date.prototype.Format = function (fmt) { //author: meizz 
+      var o = {
+         "M+": this.getMonth() + 1, //月份 
+         "d+": this.getDate(), //日 
+         "h+": this.getHours(), //小时 
+         "m+": this.getMinutes(), //分 
+         "s+": this.getSeconds(), //秒 
+         "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+         "S": this.getMilliseconds() //毫秒 
+      };
+      if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+      for (var k in o)
+         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+      return fmt;
+   }
+
+	$(function(){
+
+      $("#add").on("click", function(){
+         var typeName = $("#e1").find("option:selected").text();
+         var shop = $('#e6').select2("data");
+
+
+         if(typeName === "") {
+            alert("请选择商家分类");
+            return false;
+         }
+
+         if(shop === null) {
+            alert("请选择商家");
+            return false;
+         }
+
+
+         var myDate = new Date().Format("yyyy/MM/dd hh:mm:ss");
+
+         var html = "";
+
+         html += "<tr>";
+         html += "   <td>"+myDate +"<input type='hidden' name='addDates[]' value='"+myDate+"'></td>";
+         html += "   <td>"+typeName+"<input type='hidden' name='typeNames[]' value='"+typeName+"'></td>";
+         html += "   <td>"+shop.full_name+"<input type='hidden' name='shopNames[]' value='"+shop.full_name+"'></td>";
+         html += "   <td><a href='javascript:void(0)' class='del'>删除</a></td>";
+         html += "</tr>";
+
+         $("#myTable").append(html);
+
+         $("#myTable .del").unbind("click");
+         $("#myTable .del").on("click", function(){
+            $(this).parent().parent().remove();
+         });
+
+      });
+
+		$("#e1").select2({
+			placeholder: "请选择商家分类",
+			minimumResultsForSearch: -1
+		});
+
+
+		$("#e6").select2({
+		    placeholder: "请选择商家",
+		    minimumResultsForSearch: 0,
+		    ajax: { 
+		    	// 这边是ajax请求的方式
+		        url: "https://api.github.com/search/repositories",
+		        dataType: 'json',
+		        quietMillis: 250,
+		        data: function (term, page) {
+		            return {
+		                q: $("#e1").val(), // 关键字  分类
+		            };
+		        },
+		        results: function (data, page) {
+		        	//这边是返回的json内容
+		            return { results: data.items };
+		        },
+		        cache: true
+		    },
+		    formatResult: repoFormatResult, // omitted for brevity, see the source of this page
+		    formatSelection: repoFormatSelection,  // omitted for brevity, see the source of this page
+		    dropdownCssClass: "bigdrop", // apply css that makes the dropdown taller
+		    escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
+		});
+	})
+</script>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+  <title>第二步-找机构-借花花</title>
+  <link rel="stylesheet" type="text/css" href="./style/reset.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./style/jiehuahua.css" media="all" />
+  <script type="text/javascript" src="./js/720rem.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header"><a href="javascript:history.back()" class="back">&#x1607;</a>找机构</div>
+        <div class="setp">
+            <div class="line"></div>
+            <div class="points">
+                <div class="left">
+                    <div class="point active">1</div>
+                    <div class="text">填写贷款需求</div>
+                </div>
+                <div class="center">
+                    <div class="point active">2</div>
+                    <div class="text">完善个人信息</div>
+                </div>
+                <div class="right">
+                    <div class="point">3</div>
+                    <div class="text">发布贷款需求</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="jinggao"><em>&#x1600;</em>您填写的信息将做加密处理，仅向最终投票机构推荐！<span class="close">&#x1606;</span></div>
+        <div class="shenfen">
+            <div class="title">
+            	<div class="line-left"></div>
+            	请选择您的职业身份
+            	<div class="line-right"></div>
+            </div>
+        </div>
+
+        <ul class="shenfen-list">
+        	<li>
+        		<img src="./style/xuesheng.png">
+        		<label>
+        			<input type="radio" value="1" name="shenfen"/>
+        			学生党
+        		</label>
+        	</li>
+        	<li class="shangban">
+        		<img src="./style/shangban.png">
+        		<label>
+        			<input type="radio" value="2" name="shenfen" />
+        			上班族
+        		</label>
+        	</li>
+        	<li class="qiye">
+        		<img src="./style/qiye.png">
+        		<label>
+        			<input type="radio" value="3" name="shenfen" />
+        			企业户
+        		</label>
+        	</li>
+        	<li class="ziyou">
+        		<img src="./style/ziyou.png">
+        		<label>
+        			<input type="radio" value="4" name="shenfen" />
+        			自由职业
+        		</label>
+        	</li>
+        </ul>
+
+        <div class="footer">
+            <div class="menus">
+                <div class="left">
+                    <a href="index.html" class="menu-name active"><em>&#x1603;</em>找机构</a>
+                </div>
+                <div class="center">
+                    <a href="xindai.html" class="menu-name"><em>&#x1604;</em>找信贷员</a>
+                </div>
+                <div class="right">
+                    <a href="wode.html" class="menu-name"><em>&#x1605;</em>我的</a>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+    <div id="mask"></div>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
+<script>
+    $(function(){
+        var page = new Page();
+        page.init();
+
+        //关闭警告
+        $(".close").on("click", function(){
+            $(this).parent().hide();
+        })
+
+        //选择身份
+        $(".shenfen-list li").on("click", function(){
+        	$(this).find("input").attr("checked","checked");
+        	$(".shenfen-list li").removeClass("checked");
+        	$(this).addClass("checked");
+
+            if($(this).index(".shenfen-list li") == 0) {
+                window.location.href="zhaojigou3.html";
+            } else if($(this).index(".shenfen-list li") == 1){
+                window.location.href="shangban_zhaojigou3.html";
+            } else if($(this).index(".shenfen-list li") == 2){
+                window.location.href="qiye_zhaojigou3.html";
+            } else if($(this).index(".shenfen-list li") == 3){
+                window.location.href="ziyou_zhaojigou3.html";
+            }
+        })
+    })
+</script>

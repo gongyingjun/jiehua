@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+  <title>机构列表-借花花</title>
+  <link rel="stylesheet" type="text/css" href="./style/reset.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./style/jiehuahua.css" media="all" />
+  <script type="text/javascript" src="./js/720rem.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header"><a href="javascript:history.back()" class="back">&#x1607;</a>找机构</div>
+        
+
+
+        <div class="jigou">
+        	
+	        <div class="process" data-percent="45">
+	        	<div class="bg"></div>
+	        </div>
+
+	        <h2>当前推荐<em>准度18%</em>，完善资料，获取更多机构</h2>
+
+	        <div class="wszl">
+	        	<div class="left"></div>
+	        	<div class="btn"><a href="zhaojigou3.html">完善资料，获取更多机构</a></div>
+	        	<div class="right"></div>
+	        </div>
+
+	        <h3>有<em>3家</em>机构对您感兴趣</h3>
+	        <ul class="jigou-list">
+	        	<li>
+	        		<div class="left">
+	        			<a href="jigou_detail.html"><img src="./images/logo.jpg"></a>
+		    		</div>
+		    		<div class="right">
+		    			<div class="title">
+		    				<a href="jigou_detail.html"><h2>证大速贷</h2></a><span>最优选择</span>
+		    			</div>
+		    			<p>1-50万，4-7天放款，6-12个月，1%-1.3%利率</p>
+		    		</div>
+		    		<a href="javascript:void(0)" class="shenqing">立即申请</a>
+	        	</li>
+	        	<li>
+	        		<div class="left">
+	        			<a href="jigou_detail.html"><img src="./images/logo.jpg"></a>
+		    		</div>
+		    		<div class="right">
+		    			<div class="title">
+		    				<a href="jigou_detail.html"><h2>证大速贷</h2></a><span>最优选择</span>
+		    			</div>
+		    			<p>1-50万，4-7天放款，6-12个月，1%-1.3%利率</p>
+		    		</div>
+		    		<a href="javascript:void(0)" class="shenqing">立即申请</a>
+	        	</li>
+	        	<li>
+	        		<div class="left">
+	        			<a href="jigou_detail.html"><img src="./images/logo.jpg"></a>
+		    		</div>
+		    		<div class="right">
+		    			<div class="title">
+		    				<a href="jigou_detail.html"><h2>证大速贷</h2></a><span>最优选择</span>
+		    			</div>
+		    			<p>1-50万，4-7天放款，6-12个月，1%-1.3%利率</p>
+		    		</div>
+		    		<a href="javascript:void(0)" class="shenqing">立即申请</a>
+	        	</li>
+	        	<li>
+	        		<div class="left">
+	        			<a href="jigou_detail.html"><img src="./images/logo.jpg"></a>
+		    		</div>
+		    		<div class="right">
+		    			<div class="title">
+		    				<a href="jigou_detail.html"><h2>证大速贷</h2></a><span>最优选择</span>
+		    			</div>
+		    			<p>1-50万，4-7天放款，6-12个月，1%-1.3%利率</p>
+		    		</div>
+		    		<a href="javascript:void(0)" class="shenqing">立即申请</a>
+	        	</li>
+	        </ul>
+        </div>
+
+        <div id="jhh_confirm">
+        	<h2>确定要申请证大速贷E速贷</h2>
+        	<p>贷款金额：1000,000</p>
+        	<p>利率区间：0.12%-1.78%</p>
+        	<div class="btns">
+        		<a href="javascript:void(0)" class="cancel">取消</a>
+        		<a href="javascript:void(0)" class="ok">确定</a>
+        	</div>
+        </div>
+
+        <div class="footer">
+            <div class="menus">
+                <div class="left">
+                    <a href="index.html" class="menu-name active"><em>&#x1603;</em>找机构</a>
+                </div>
+                <div class="center">
+                    <a href="xindai.html" class="menu-name"><em>&#x1604;</em>找信贷员</a>
+                </div>
+                <div class="right">
+                    <a href="wode.html" class="menu-name"><em>&#x1605;</em>我的</a>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+    <div id="mask"></div>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
+<script>
+    $(function(){
+        var page = new Page();
+        page.init();
+
+
+        //显示进度条
+        var percent = $(".jigou .process").data("percent");
+        $(".jigou .process .bg").animate({"width":(100-percent)+"%"},500);
+        $(".jigou .process .bg").html("<em>"+percent+"%</em>");
+
+
+        $(".jigou-list a.shenqing").on("click", function(){
+        	$("#mask").show();
+        	$("#jhh_confirm").show();
+        })
+
+
+        //弹出框点击取消
+        $("#jhh_confirm .cancel").on("click", function(){
+        	$("#mask").hide();
+        	$("#jhh_confirm").hide();
+        })
+
+
+        //弹出框点击取消
+        $("#jhh_confirm .ok").on("click", function(){
+        	$("#mask").hide();
+        	$("#jhh_confirm").hide();
+        })
+    })
+</script>

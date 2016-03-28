@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+  <title>[学生]第三步-找机构-借花花</title>
+  <link rel="stylesheet" type="text/css" href="./style/reset.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./style/jiehuahua.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./style/swiper.css" media="all" />
+  <script src="./js/swiper.js"></script>
+  <script type="text/javascript" src="./js/720rem.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header"><a href="javascript:history.back()" class="back">&#x1607;</a>找机构</div>
+        <div class="setp">
+            <div class="line"></div>
+            <div class="points">
+                <div class="left">
+                    <div class="point active">1</div>
+                    <div class="text">填写贷款需求</div>
+                </div>
+                <div class="center">
+                    <div class="point active">2</div>
+                    <div class="text">完善个人信息</div>
+                </div>
+                <div class="right">
+                    <div class="point">3</div>
+                    <div class="text">发布贷款需求</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="jinggao"><em>&#x1600;</em>您填写的信息将做加密处理，仅向最终投票机构推荐<span class="close">&#x1606;</span></div>
+
+        <div class="info-form">
+            <ul class="form-menu">
+                <li class="active">基本信息</li>
+                <li class="">身份信息</li>
+                <li class="">资产信息</li>
+                <li class="">信用信息</li>    
+            </ul>
+
+            
+
+            <!-- Swiper -->
+            <div class="swiper-container" style="border:#fff solid 1px;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        
+                        <div class="base-info">
+                            <dl>
+                                <dt>身份证号</dt>
+                                <dd><input type="text" name="cardNumber" placeholder="请填写18位身份证号码" autocomplete="off"></dd>
+                            </dl>
+                            <dl>
+                                <dt>姓名</dt>
+                                <dd><input type="text" name="name" placeholder="您的姓名" autocomplete="off"></dd>
+                            </dl>
+                            <dl>
+                                <dt>性别</dt>
+                                <dd>
+                                    <label><input type="radio" name="sex" value="0" checked="checked">男</label>
+                                    <label><input type="radio" name="sex" value="1">女</label>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>文化程度</dt>
+                                <dd>
+                                    <select name="education">
+                                        <option value="大专">大专</option>
+                                        <option value="本科">本科</option>
+                                        <option value="硕士">硕士</option>
+                                        <option value="博士">博士</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>婚姻状态</dt>
+                                <dd>
+                                    <select name="education">
+                                        <option value="未婚">未婚</option>
+                                        <option value="已婚">已婚</option>
+                                        <option value="离异">离异</option>
+                                        <option value="丧偶">丧偶</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <a href="javascript:void(0)" class="submit">下一步</a>
+                            </dl>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        
+                        <div class="shenfen-info kuan2">
+                            <dl>
+                                <dt>所在城市</dt>
+                                <dd>
+                                    <select name="city">
+                                        <option value="北京">北京</option>
+                                        <option value="上海">上海</option>
+                                        <option value="广州">广州</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>企业身份</dt>
+                                <dd>
+                                    <select>
+                                        <option value="法人">法人</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>持股比例</dt>
+                                <dd>
+                                    <select>
+                                        <option value="10%-20%">10%-20%</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>经营年限</dt>
+                                <dd>
+                                    <select name="city">
+                                        <option value="1">3-5年</option>
+                                        <option value="2">1-2年</option>
+                                        <option value="3">5-7年</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>营业执照时间</dt>
+                                <dd>
+                                    <select>
+                                        <option value="1">已办理且注册不满6个月</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>每月对公流水</dt>
+                                <dd>
+                                    <select>
+                                        <option value="1">20,000~30,000</option>
+                                        <option value="2">30,000-50,000</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>每月对私流水</dt>
+                                <dd>
+                                    <select>
+                                        <option value="1">20,000~30,000</option>
+                                        <option value="2">30,000-50,000</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <a href="javascript:void(0)" class="submit">下一步</a>
+                            </dl>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        
+                        <div class="zichan-info">
+                            <dl>
+                                <dt>信用卡额度</dt>
+                                <dd>
+                                    <select name="quota">
+                                        <option value="5万元">5万元</option>
+                                        <option value="3万元">3万元</option>
+                                        <option value="2万元">2万元</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>名下房产</dt>
+                                <dd>
+                                    <select name="house">
+                                        <option value="1">有1套</option>
+                                        <option value="2">有2套</option>
+                                        <option value="3">有3套</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>名下车产</dt>
+                                <dd>
+                                    <select name="car">
+                                        <option value="1">有1辆</option>
+                                        <option value="2">有2辆</option>
+                                        <option value="3">有3辆</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>贷款记录</dt>
+                                <dd>
+                                    <select name="loan">
+                                        <option value="有民间贷款">有民间贷款</option>
+                                        <option value="有商业贷款">有商业贷款</option>
+                                        <option value="有公积金贷款">有公积金贷款</option>
+                                        <option value="无贷款">无贷款</option>
+                                    </select>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <a href="javascript:void(0)" class="submit">下一步</a>
+                            </dl>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        
+                        <div class="credit-title">
+                            <p>点亮信用图标，信用分越高</p>
+                            <p>可借贷度越高，利息更便宜</p>
+                        </div>
+
+                        <div class="credit-info">
+                            <div class="quan yang active">央行征信</div>
+                            <div class="quan mobile active">手机信用</div>
+                            <div class="quan tao active">淘宝信息</div>
+                            <div class="quan qian">好信度</div>
+                            <div class="total">82</div>
+                            <a href="zhaojigou_index.html" class="zhaobiao">发布贷款需求</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- <div class="footer">
+            <div class="menus">
+                <div class="left">
+                    <a href="index.html" class="menu-name active"><em>&#x1603;</em>找机构</a>
+                </div>
+                <div class="center">
+                    <a href="xindai.html" class="menu-name"><em>&#x1604;</em>找信贷员</a>
+                </div>
+                <div class="right">
+                    <a href="wode.html" class="menu-name"><em>&#x1605;</em>我的</a>
+                </div>
+            </div>
+        </div>
+ -->
+        
+    </div>
+
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
+<script>
+    $(function(){
+        var page = new Page();
+        page.init();
+
+
+        var swiper = new Swiper('.swiper-container', {
+            paginationClickable: true,
+            autoHeight: true,
+            spaceBetween: 50,
+            // touchRatio: 0,
+            onSlideChangeEnd: function(swiper){
+                var index = swiper.activeIndex;
+                $(".form-menu li").removeClass("active");
+                $(".form-menu li:eq("+index+")").addClass("active");
+
+                if(index === 3) {
+                    $(".setp .point:eq(2)").addClass("active");
+                }
+            }
+        });
+        
+        //关闭警告
+        $(".close").on("click", function(){
+            $(this).parent().hide();
+        })
+
+        //表单验证
+        $(".base-info .submit").on("click", function(){
+
+            var cardNumber = $(".base-info input[name=cardNumber]").val();
+            var name = $(".base-info input[name=name]").val();
+            $(".base-info dd").removeClass("error");
+
+            if(cardNumber === "") {
+                $(".base-info input[name=cardNumber]").parent().addClass("error");
+                $(".base-info input[name=cardNumber]").attr("placeholder","身份证号码不能为空");
+                return false;
+            } else if(name == "") {
+                $(".base-info input[name=name]").parent().addClass("error");
+                $(".base-info input[name=name]").attr("placeholder","姓名不能为空");
+                return false;
+            }
+            
+            swiper.slideNext();
+        })
+
+        //表单验证
+        $(".shenfen-info .submit").on("click", function(){
+
+            var schoolName = $(".shenfen-info input[name=schoolName]").val();
+            $(".shenfen-info dd").removeClass("error");
+            if(schoolName === "") {
+                $(".shenfen-info input[name=schoolName]").parent().addClass("error");
+                $(".shenfen-info input[name=schoolName]").attr("placeholder","公司全称不能为空");
+                return false;
+            }
+            
+            swiper.slideNext();
+        })
+
+        $(".form-menu li").on("click", function(){
+            var index = $(this).index(".form-menu li");
+            swiper.slideTo(index);
+        })
+
+        $(".zichan-info .submit").on("click", function(){
+            swiper.slideNext();
+        })
+    })
+</script>

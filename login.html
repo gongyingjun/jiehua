@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+  <title>运营商授权-借花花</title>
+  <link rel="stylesheet" type="text/css" href="./style/reset.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./style/jiehuahua.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./style/swiper.css" media="all" />
+  <script src="./js/swiper.js"></script>
+  <script type="text/javascript" src="./js/720rem.js"></script>
+</head>
+<body style="background: #f4f4f4">
+    <div class="container bg-hui">
+        <div class="header">登录</div>
+
+        <ul class="login-menu">
+        	<li class="active">密码登录</li>
+        	<li>验证码登录</li>
+        </ul>
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <form id="login_form1">
+				        <div class="login-form">
+				        	<dl>
+				        		<dt>&#x1608;</dt>
+				        		<dd>
+				        			<input type="text" name="mobile" placeholder="手机号码" autocomplete="off">
+				        		</dd>
+				        	</dl>
+				        	<dl>
+				        		<dt>&#x1671;</dt>
+				        		<dd>
+				        			<input type="password" name="password" placeholder="密码" autocomplete="off">
+				        		</dd>
+				        	</dl>
+				        </div>
+
+				        <a href="javascript:void(0)" class="submit">登录</a>
+			        </form>
+                </div>
+                <div class="swiper-slide">
+                    <form id="login_form2">
+				        <div class="login-form">
+				        	<dl>
+				        		<dt>&#x1608;</dt>
+				        		<dd>
+				        			<input type="text" name="mobile" placeholder="手机号码" autocomplete="off">
+				        		</dd>
+				        	</dl>
+				        	<dl>
+				                <dt>&#x1683;</dt>
+				                <dd>
+				                    <input type="text" maxlength="6" value="" name="yzm" value="yzm" placeholder="验证码" style="width: 3.5rem">
+				                    <a href="" class="yzm">获取验证码</a>
+				                </dd>
+				            </dl>
+				        </div>
+
+				        <a href="javascript:void(0)" class="submit">登录</a>
+			        </form>
+                </div>
+            </div>
+            <div class="login-register">
+            	<a href="zhuce.html">注册帐号</a> | <a href="zhaomima.html">忘记密码</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
+<script>
+    $(function(){
+        var page = new Page();
+        page.init();
+
+        var swiper = new Swiper('.swiper-container', {
+            paginationClickable: true,
+            autoHeight: true,
+            spaceBetween: 50,
+            onSlideChangeEnd: function(swiper){
+                var index = swiper.activeIndex;
+                $(".login-menu li").removeClass("active");
+                $(".login-menu li:eq("+index+")").addClass("active");
+            }
+        });
+
+        $(".login-menu li").on("click", function(){
+            var index = $(this).index(".login-menu li");
+            swiper.slideTo(index);
+        })
+
+        
+
+        $(".login-form input").on("focus", function(){
+
+        	$(".login-form dl").removeClass("active");
+        	$(this).parent().parent().addClass("active");
+        })
+
+        $("#login_form1 .submit").on("click", function(){
+        	var mobile = $("#login_form1 input[name=mobile]").val();
+        	var password = $("#login_form1 input[name=password]").val();
+
+        	$("#login_form1 dd").removeClass("error");
+        	$("#login_form1 dl").removeClass("active");
+
+        	var re= /^(1[0-9]{10})$/;
+        	if(mobile === "") {
+        		$("#login_form1 input[name=mobile]").parent().addClass("error");
+        		$("#login_form1 input[name=mobile]").attr("placeholder","请填写手机号码");
+        		$("#login_form1 input[name=mobile]").focus();
+        	} else if(!re.test(mobile)){
+        		$("#login_form1 input[name=mobile]").parent().addClass("error");
+        		$("#login_form1 input[name=mobile]").attr("placeholder","手机号码不正确");
+                $("#login_form1 input[name=mobile]").val("");
+        		$("#login_form1 input[name=mobile]").focus();
+        	} else if(password === "") {
+        		$("#login_form1 input[name=password]").parent().addClass("error");
+        		$("#login_form1 input[name=password]").attr("placeholder","请输入登录密码");
+                $("#login_form1 input[name=password]").val("");
+        		$("#login_form1 input[name=password]").focus();
+        	}
+        })
+
+        $("#login_form2 .submit").on("click", function(){
+        	var mobile = $("#login_form2 input[name=mobile]").val();
+        	var yzm = $("#login_form2 input[name=yzm]").val();
+
+        	$("#login_form2 dd").removeClass("error");
+        	$("#login_form2 dl").removeClass("active");
+
+        	var re= /^(1[0-9]{10})$/;
+        	if(mobile === "") {
+        		$("#login_form2 input[name=mobile]").parent().addClass("error");
+        		$("#login_form2 input[name=mobile]").attr("placeholder","请填写手机号码");
+        		$("#login_form2 input[name=mobile]").focus();
+        	} else if(!re.test(mobile)){
+        		$("#login_form2 input[name=mobile]").parent().addClass("error");
+        		$("#login_form2 input[name=mobile]").attr("placeholder","手机号码不正确");
+                $("#login_form2 input[name=mobile]").val("");
+        		$("#login_form2 input[name=mobile]").focus();
+        	} else if(yzm === "") {
+        		$("#login_form2 input[name=yzm]").parent().addClass("error");
+        		$("#login_form2 input[name=yzm]").attr("placeholder","验证码不正确");
+                $("#login_form2 input[name=yzm]").val("");
+        		$("#login_form2 input[name=yzm]").focus();
+        	}
+        })
+
+        //验证码
+        var yzmInterval = null;
+        var yzmTime = 60;
+        $(".yzm").on("click", function(){
+            $(this).addClass("disabled");
+            yzmInterval = setInterval(function(){
+
+                yzmTime--;
+                if(yzmTime <= 0) {
+                    $(".yzm").html("获取验证码");
+                    $(".yzm").removeClass("disabled");
+                    clearInterval(yzmInterval);
+                } else {
+                    $(".yzm").html(yzmTime + "秒后重新发送");
+                }
+            },1000);
+            return false;
+        });
+    })
+</script>

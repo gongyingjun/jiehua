@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+  <title>第一步-找机构-借花花</title>
+  <link rel="stylesheet" type="text/css" href="./style/reset.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./style/jiehuahua.css" media="all" />
+  <script type="text/javascript" src="./js/720rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./style/swiper.css" media="all" />
+</head>
+<body style="background-color: #fff !important;">
+    <div class="container">
+        <div class="header">找机构</div>
+        <div class="jigou">
+        	
+	        <div class="process" data-percent="45">
+	        	<div class="bg"></div>
+	        </div>
+
+	        <h2>当前推荐<em>准度18%</em>，完善资料，获取更多机构</h2>
+
+	        <div class="wszl">
+	        	<div class="left"></div>
+	        	<div class="btn"><a href="zhaojigou3.html">完善资料，获取更多机构</a></div>
+	        	<div class="right"></div>
+	        </div>
+
+
+	        <div class="rotate-div">
+	        	<div class="rotate"></div>
+	        	<div class="miao"><i>10</i><em>秒</em></div>
+
+	        	<div class="price price1"><span>出价<br>0.9%</span></div>
+	        	<div class="price price2 small"><span>出价<br>0.9%</span></div>
+	        	<div class="price price3 big"><span>出价<br>0.9%</span></div>
+	        	<div class="price price4"><span>出价<br>0.9%</span></div>
+	        	<div class="price price5 big"><span>出价<br>0.9%</span></div>
+	        	<div class="price price6 big"><span>出价<br>0.9%</span></div>
+	        </div>
+
+	        <div class="rotate-info">
+	        	<p>已有<em>8</em>个机构收到您的贷款需求</p>
+	        	<div>
+	        		<span><em>3</em>家机构对您感兴趣</span><a href="jigou_list.html">点击查看</a>
+	        	</div>
+	        </div>
+
+        </div>
+
+        <div class="footer">
+            <div class="menus">
+                <div class="left">
+                    <a href="index.html" class="menu-name active"><em>&#x1603;</em>找机构</a>
+                </div>
+                <div class="center">
+                    <a href="xindai.html" class="menu-name"><em>&#x1604;</em>找信贷员</a>
+                </div>
+                <div class="right">
+                    <a href="wode.html" class="menu-name"><em>&#x1605;</em>我的</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mask"></div>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+  	<script src="./js/rotate.js"></script>
+</body>
+</html>
+<script>
+    $(function(){
+        var page = new Page();
+        page.init();
+
+        //显示进度条
+        var percent = $(".jigou .process").data("percent");
+        $(".jigou .process .bg").animate({"width":(100-percent)+"%"},500);
+        $(".jigou .process .bg").html("<em>"+percent+"%</em>");
+
+        var angle = 0;
+		setInterval(function(){
+		      angle+=5;
+		     $(".rotate").rotate(angle);
+		},15);
+
+		var time = 10;
+		setInterval(function(){
+			if(time <= 1) {
+				window.location.href="jigou_list.html";
+				return false;
+			}
+			time--;
+
+			if(time<10) {
+				$(".miao i").text("0"+time);
+			} else {
+				$(".miao i").text(time);
+			}
+		      
+		},1000);
+
+		setTimeout(function(){
+			$(".price1").stop().animate({"opacity":"1"},1000);
+		},1000);
+		setTimeout(function(){
+			$(".price2").stop().animate({"opacity":"1"},1000);
+		},3000);
+		setTimeout(function(){
+			$(".price3").stop().animate({"opacity":"1"},1000);
+		},3100);
+		setTimeout(function(){
+			$(".price4").stop().animate({"opacity":"1"},1000);
+		},3200);
+		setTimeout(function(){
+			$(".price5").stop().animate({"opacity":"1"},1000);
+		},4000);
+		setTimeout(function(){
+			$(".price6").stop().animate({"opacity":"1"},1000);
+		},4200);
+
+    })
+</script>

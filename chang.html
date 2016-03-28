@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+  <title>第一步-找机构-借花花</title>
+  <link rel="stylesheet" type="text/css" href="./style/reset.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./style/jiehuahua.css" media="all" />
+  <script type="text/javascript" src="./js/720rem.js"></script>
+  <link rel="stylesheet" type="text/css" href="./style/swiper.css" media="all" />
+  <script src="./js/swiper.js"></script>
+</head>
+<body>
+	<style>
+	.kedubiao{
+		width: 15px;
+		height: 360px;
+		background: url("images/kd7600.jpg") bottom center no-repeat;
+		background-size: 7600px 360px;
+		background-position: 0px 0px;
+	.mykedu{
+		width: 1px;
+		height: 20px;
+		position: absolute;
+		bottom: 36px;
+		background: #f00;
+		z-index: 9999;
+		left: 50%;
+		margin-left:0px;
+	}
+	</style>
+	
+    <div class="container">
+        <!-- Swiper -->
+	    <div class="swiper-container">
+	        <div class="swiper-wrapper">
+	            <div class="swiper-slide">
+	                <div class="kedubiao2">
+	                	<img src="images/kd.jpg">
+	                </div>
+	            </div>
+	        </div>
+	        <div class="mykedu"></div>
+	        <!-- Add Scroll Bar -->
+	        <!-- <div class="swiper-scrollbar" style="display: none;"></div> -->
+	    </div>
+    </div>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
+<script>
+    $(function(){
+        var page = new Page();
+        page.init();
+
+
+        var win_width = window.innerWidth >750?750:window.innerWidth;	//获取浏览器宽度
+
+     	var sliderWidth = 15;
+
+        if(win_width < 750 && win_width >= 480) {
+        	sliderWidth = 10;
+        } else if(win_width < 480) {
+        	sliderWidth = 5;
+        }
+
+
+        var swiperWidth = win_width - win_width % 50;
+
+        var mywidth = swiperWidth / 50;
+
+
+        var positionX = parseInt(7600 / 750 * swiperWidth * 1000)/1000;
+        var positionY = parseInt(360 / 750 * swiperWidth * 1000)/1000;
+
+        var juli = parseInt(54 / 750 * swiperWidth * 1000)/1000;
+        var height = parseInt(10 / 360 * swiperWidth * 1000)/1000;
+
+        $(".mykedu").css({"bottom":juli+"px","height":height+"px"});
+
+        var positionSize = positionX+"px "+positionY+"px";
+
+        $(".swiper-slide").css("height",positionY);
+
+        $(".swiper-container").css("width",swiperWidth);	//设置swiper的宽度
+
+
+        var html = "";
+        var width = 0;
+        for(var i=0; i<510; i++) {
+        	html += '<div class="swiper-slide"><div class="kedubiao" style="height:'+positionY+'px;background-size:'+positionSize+';background-position: '+width+'px 0px;"></div></div>';
+        	width -= mywidth;
+        }
+        $(".swiper-wrapper").html(html);
+
+
+        var swiper = new Swiper('.swiper-container', {
+	        // scrollbar: '.swiper-scrollbar',
+	        scrollbarHide:true,
+	        direction: 'horizontal',
+	        mousewheelControl: true,
+            spaceBetween: 0,
+	        freeMode: false,
+	        slidesPerView: 50,
+	        centeredSlides: true,
+	        onSlideChangeEnd: function(swiper){
+                if(swiper.activeIndex > 500) {
+                	swiper.slideTo(500);
+                }
+                console.log(swiper.activeIndex);
+            }
+	    });
+
+	    // $(".kedubiao").onscroll = function(){
+	    // 	console.log("213")
+	    // }
+    })
+</script>

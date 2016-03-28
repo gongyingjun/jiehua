@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+  <title>运营商授权-借花花</title>
+  <link rel="stylesheet" type="text/css" href="./style/reset.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./style/jiehuahua.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="http://www.swiper.com.cn/dist/css/swiper.min.css" media="all" />
+  <script type="text/javascript" src="./js/720rem.js"></script>
+</head>
+<body style="background: #f4f4f4">
+    <div class="container bg-hui">
+        <div class="header"><a href="javascript:history.back()" class="back">&#x1607;</a>运营商授权</div>
+        
+        <img src="./images/qian_logo.jpg" class="login-logo">
+        <form id="login_form">
+	        <div class="login-form">
+	        	<dl>
+	        		<dt>&#x1670;</dt>
+	        		<dd>
+	        			<input type="text" name="userName" placeholder="姓名" autocomplete="off">
+	        		</dd>
+	        	</dl>
+	        	<dl>
+	        		<dt>&#x1609;</dt>
+	        		<dd>
+	        			<input type="text" name="cardNumber" placeholder="身份证号" autocomplete="off">
+	        		</dd>
+	        	</dl>
+	        	<dl>
+	        		<dt>&#x1608;</dt>
+	        		<dd>
+	        			<input type="text" name="mobile" placeholder="手机号码" autocomplete="off">
+	        		</dd>
+	        	</dl>
+	        </div>
+
+	        <a href="" class="register">注册好信度</a>
+
+	        <a href="javascript:void(0)" class="submit">提交</a>
+
+	        <h4>银行最高级别加密，绝对保障您的信息不被泄漏</h4>
+        </form>
+
+        <div class="footer">
+            <div class="menus">
+                <div class="left">
+                    <a href="index.html" class="menu-name active"><em>&#x1603;</em>找机构</a>
+                </div>
+                <div class="center">
+                    <a href="xindai.html" class="menu-name"><em>&#x1604;</em>找信贷员</a>
+                </div>
+                <div class="right">
+                    <a href="wode.html" class="menu-name"><em>&#x1605;</em>我的</a>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+    <script src="http://www.swiper.com.cn/dist/js/swiper.min.js"></script>
+</body>
+</html>
+<script>
+    $(function(){
+        var page = new Page();
+        page.init();
+
+        $(".login-form input").on("focus", function(){
+
+        	$(".login-form dl").removeClass("active");
+        	$(this).parent().parent().addClass("active");
+        })
+
+        $("#login_form .submit").on("click", function(){
+        	var userName = $("#login_form input[name=userName]").val();
+        	var cardNumber = $("#login_form input[name=cardNumber]").val();
+        	var mobile = $("#login_form input[name=mobile]").val();
+
+        	$("#login_form dd").removeClass("error");
+        	$("#login_form dl").removeClass("active");
+
+        	var re= /^(1[0-9]{10})$/;
+        	if(userName === "") {
+        		$("#login_form input[name=userName]").parent().addClass("error");
+        		$("#login_form input[name=userName]").attr("placeholder","请填写您的姓名");
+        		$("#login_form input[name=userName]").focus();
+        	} else if(cardNumber === "") {
+        		$("#login_form input[name=cardNumber]").parent().addClass("error");
+        		$("#login_form input[name=cardNumber]").attr("placeholder","请填写身份证号码");
+        		$("#login_form input[name=cardNumber]").focus();
+        	} else if(mobile === "") {
+        		$("#login_form input[name=mobile]").parent().addClass("error");
+        		$("#login_form input[name=mobile]").attr("placeholder","请填写手机号码");
+        		$("#login_form input[name=mobile]").focus();
+        	} else if(!re.test(mobile)){
+        		$("#login_form input[name=mobile]").parent().addClass("error");
+        		$("#login_form input[name=mobile]").attr("placeholder","手机号码不正确");
+                $("#login_form input[name=mobile]").val("");
+        		$("#login_form input[name=mobile]").focus();
+        	}
+        })
+    })
+</script>

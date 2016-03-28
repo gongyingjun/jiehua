@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+  <title>机构详情-借花花</title>
+  <link rel="stylesheet" type="text/css" href="./style/reset.css" media="all" />
+  <link rel="stylesheet" type="text/css" href="./style/jiehuahua.css" media="all" />
+  <script type="text/javascript" src="./js/720rem.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header"><a href="javascript:history.back()" class="back">&#x1607;</a>机构产品详情</div>
+
+        <div class="jigou-info">
+    		<div class="left">
+    			<img src="./images/logo.jpg">
+    		</div>
+    		<div class="right">
+    			<h2>E房贷</h2>
+    			<p>深圳证大速贷有限公司</p>
+                <p>2345人成功申请</p>
+    		</div>
+
+    		<div class="jiaohu">
+    			<label><input type="text" class="yuan" value="100,000">元</label>
+    			<label><input type="text" class="yue" value="12"> 月</label>
+    		</div>
+
+    		<ul class="tags">
+    			<li class="ya">无抵押</li>
+    			<li class="shang">上班族申请</li>
+    			<li class="dai">3天放贷</li>
+    		</ul>
+
+    		<a href="" class="shenqing">立即申请</a>
+        </div>
+
+        <div class="bg-line"></div>
+
+        <div class="sq-floor">
+        	<h2><span>&nbsp;</span>申请信息</h2>
+        	<dl>
+        		<dt>贷款金额(元)</dt>
+        		<dt>贷款期限(月)</dt>
+        		<dt>总费用(元)</dt>
+        		<dt>利率区间(%)</dt>
+        	</dl>
+        	<dl>
+        		<dd>100,000</dd>
+        		<dd>12</dd>
+        		<dd>1200</dd>
+        		<dd>1.3% - 2.3%</dd>
+        	</dl>
+        </div>
+
+        <div class="bg-line"></div>
+
+        <div class="sq-floor">
+        	<h2><span>&nbsp;</span>申请条件</h2>
+        	<p>1、中国公民，20-60周岁；</p>
+			<p>2、有稳定收入来源；</p>
+			<p>3、名下有车辆。</p>
+        </div>
+
+        <div class="bg-line"></div>
+
+        <div class="sq-floor">
+        	<h2><span>&nbsp;</span>所需材料</h2>
+        	<p>1、个人证明：身份证；</p>
+			<p>2、车辆资料：驾驶证、行驶证原件；机动车辆登记原件；交强险、盛业险保单原件；车辆按揭合同和车辆按揭还款证明（此项为按揭车必须提供）；备用钥匙；</p>
+			<p>3、其他：银行卡（储蓄卡）；居住证（非本地户口提供）</p>
+        </div>
+        
+
+        <div class="footer">
+            <div class="menus">
+                <div class="left">
+                    <a href="index.html" class="menu-name active"><em>&#x1603;</em>找机构</a>
+                </div>
+                <div class="center">
+                    <a href="xindai.html" class="menu-name"><em>&#x1604;</em>找信贷员</a>
+                </div>
+                <div class="right">
+                    <a href="wode.html" class="menu-name"><em>&#x1605;</em>我的</a>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
+<script>
+    $(function(){
+        var page = new Page();
+        page.init();
+
+        $(".jiaohu input.yuan").on("keyup", function(){
+        	var s = $(this).val();
+        	s = s.replace(/,/g,"")
+        	s=s.split('').reverse().join('').replace(/(\d{3})/g,'$1,').replace(/\,$/,'').split('').reverse().join('');
+	        $(this).val(s);
+        })
+    })
+</script>
